@@ -1,0 +1,148 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: lightgray;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(98, 98, 231);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo{
+    text-align: center;
+  }
+  
+  .logo img {
+    max-width: 70px;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav ul li:hover > .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 10px;
+    background-color: lightgray;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-menu li {
+    margin-bottom: 10px;
+  }
+
+  .search-box form {
+    display: flex;
+    align-items: center;
+    float: right;
+  }
+  
+  .search-box input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+  }
+  
+  header button[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background-color: white;
+    color: rgb(98, 98, 231);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  header button[type="submit"]:hover {
+    background-color: blue;
+    color: white;
+  }
+  
+  .sign-form{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search-box, .sign-form{
+    padding-top: 20px;
+  }
+
+  .nav-links i{
+    font-size: 40px;
+  }
+
+  .nav-links{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    gap: 5vw;
+  }
+
+  .box{
+    margin-top: 4vh;
+    height: 80%;
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  .left-div{
+    width: 20vw;
+    float: left;
+  }
+
+  .center-div{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow:auto;
+    width: 50vw;
+    z-index: -1;
+  }
+
+  .right-div{
+    float: right;
+    display: flex;
+    width: 20vw;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    .search-box, nav{
+      display: none;
+    }
+  }
+
+  
