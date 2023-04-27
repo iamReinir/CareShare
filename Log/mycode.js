@@ -14,4 +14,4 @@ function showLog(){
     let logForm = document.getElementById("pills-login");
     logForm.classList.add("active");
     logForm.classList.add("show");
-}
+} 

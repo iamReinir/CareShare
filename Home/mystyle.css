@@ -98,10 +98,6 @@ header {
     padding-top: 20px;
   }
 
-  .nav-links i{
-    font-size: 40px;
-  }
-
   .nav-links{
     position: absolute;
     top: 50%;
@@ -123,6 +119,10 @@ header {
     float: left;
   }
 
+  .left-div ul{
+    list-style-type: none;
+  }
+
   .center-div{
     position: absolute;
     left: 50%;
@@ -139,9 +139,34 @@ header {
     align-items: center;
   }
 
+  .mobile-res{
+    display: none;
+    width: 100vw;
+    height: 8vh;
+    background-color: rgb(98, 98, 231);
+    position: fixed;
+    bottom: 0;
+  }
+
   @media screen and (max-width: 768px) {
     .search-box, nav{
       display: none;
+    }
+
+    .box{
+      margin-top: 2vh;
+    }
+
+    .center-div{
+      width: 95vw;
+    }
+
+    .left-div, .right-div{
+      display: none;
+    }
+
+    .mobile-res{
+      display: block;
     }
   }
 
