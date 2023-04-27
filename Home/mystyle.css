@@ -90,10 +90,17 @@ header {
   }
   
   .sign-form{
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    bottom: 0;
   }
-
+  .sign-form form{
+    margin-left: 20%;
+    bottom: 0;
+  }
   .search-box, .sign-form{
     padding-top: 20px;
   }
@@ -121,20 +128,28 @@ header {
 
   .left-div ul{
     list-style-type: none;
+
+  }
+  .left-div li{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .left-div a{
+    text-decoration: none;
+    font-size: 24px;
+    color: blue;
   }
 
   .center-div{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-left: 3%;
     overflow:auto;
     width: 50vw;
-    z-index: -1;
   }
 
   .right-div{
     float: right;
-    display: flex;
+    position: relative;
+    display: block;
     width: 20vw;
     align-items: center;
   }
@@ -148,6 +163,7 @@ header {
     bottom: 0;
   }
 
+
   @media screen and (max-width: 768px) {
     .search-box, nav{
       display: none;
@@ -159,6 +175,7 @@ header {
 
     .center-div{
       width: 95vw;
+      margin-left: 0px;
     }
 
     .left-div, .right-div{
