@@ -144,6 +144,7 @@ header {
     margin-left: 3%;
     overflow:auto;
     width: 50vw;
+    z-index: -1;
   }
 
   .right-div{
