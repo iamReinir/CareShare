@@ -1,3 +1,5 @@
+
+
 function showReg(){
     let logForm = document.getElementById("pills-login");
     logForm.classList.remove("active");
