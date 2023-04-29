@@ -14,8 +14,8 @@ function postStatus(){
     document.getElementById("centerD").firstElementChild.after(cloneDiv);
 }
 
-
 window.onload = function(){
+    alert("Loading...");
     if (loged) {
         document.querySelectorAll("[id=avatar]").forEach(element=>element.src = avatar);
     }
