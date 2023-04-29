@@ -31,6 +31,7 @@ var uiConfig = {
   // function.
   // Terms of service url/callback.
   tosUrl: "<your-tos-url>",
+  signInFlow: "popup",
   // Privacy policy url/callback.
   privacyPolicyUrl: function () {
     window.location.assign("<your-privacy-policy-url>");
@@ -38,13 +39,13 @@ var uiConfig = {
 };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBSezDH_1igvrvfB_2eh5O_DLX_knpNTbU",
-  authDomain: "careshare-9087d.firebaseapp.com",
-  projectId: "careshare-9087d",
-  storageBucket: "careshare-9087d.appspot.com",
-  messagingSenderId: "1085205167275",
-  appId: "1:1085205167275:web:ed0b71cd64201fcf6acbee",
-  measurementId: "G-5EWSB778R8",
+  apiKey: "AIzaSyCLSW2XN2Dtneqn7ItU8LIIdlBbyXl1A8g",
+  authDomain: "careshare-d3c74.firebaseapp.com",
+  projectId: "careshare-d3c74",
+  storageBucket: "careshare-d3c74.appspot.com",
+  messagingSenderId: "339006510175",
+  appId: "1:339006510175:web:a8fad88cd2539cb91bb7ea",
+  measurementId: "G-DXHCXFX7LE",
 };
 let app = firebase.initializeApp(firebaseConfig);
 // Initialize the FirebaseUI Widget using Firebase.
