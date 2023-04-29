@@ -1,22 +1,5 @@
-function showReg() {
-  let logForm = document.getElementById("pills-login");
-  logForm.classList.remove("active");
-  logForm.classList.remove("show");
-  let regForm = document.getElementById("pills-register");
-  regForm.classList.add("active");
-  regForm.classList.add("show");
-}
-
-function showLog() {
-  let regForm = document.getElementById("pills-register");
-  regForm.classList.remove("active");
-  regForm.classList.remove("show");
-  let logForm = document.getElementById("pills-login");
-  logForm.classList.add("active");
-  logForm.classList.add("show");
-}
 var uiConfig = {
-  signInSuccessUrl: "../index.html",
+  signInSuccessUrl: "../test.html",
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -48,6 +31,24 @@ const firebaseConfig = {
   measurementId: "G-DXHCXFX7LE",
 };
 let app = firebase.initializeApp(firebaseConfig);
+
+// firebase
+//   .auth()
+//   .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+//   .then(() => {
+//     // Existing and future Auth states are now persisted in the current
+//     // session only. Closing the window would clear any existing state even
+//     // if a user forgets to sign out.
+//     // ...
+//     // New sign-in will be persisted with session persistence.
+//     return firebase.auth().signInWithEmailAndPassword(email, password);
+//   })
+//   .catch((error) => {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//   });
+
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
