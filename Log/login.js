@@ -44,23 +44,46 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
 ui.start("#firebaseui-auth-container", uiConfig);
 
-function loginButtonClicked() {
-  let loginSucess = emailLogin(
+async function loginButtonClicked() {
+  if (document.getElementById("rememberMe").check) {
+    console.log("remember");
+    firebase
+      .auth()
+      .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .catch((e) => {
+        console.log(e);
+      });
+  } else {
+    console.log(" Not remember");
+    firebase
+      .auth()
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+  let loginSucess = await emailLogin(
     document.getElementById("loginName").value,
     document.getElementById("loginPassword").value
   );
-
   if (loginSucess) window.open(mainPage, "_self");
 }
 
-function emailLogin(email, password) {
+async function emailLogin(email, password) {
+  let res = true;
   //firebase.auth().signOut();
-  firebase
+  await firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .catch((error) => {
-      alert("Error, might be wrong password");
+    .catch((e) => {
+      loginFailed();
+      res = false;
     });
+  return res;
+}
+
+function loginFailed() {
+  alert("Wrong email and/or password!");
 }
 let u;
 firebase.auth().onAuthStateChanged((user) => {
