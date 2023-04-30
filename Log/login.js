@@ -1,5 +1,6 @@
+const mainPage = "../test.html";
 var uiConfig = {
-  signInSuccessUrl: "../test.html",
+  signInSuccessUrl: mainPage,
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -20,17 +21,6 @@ var uiConfig = {
     window.location.assign("<your-privacy-policy-url>");
   },
 };
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCLSW2XN2Dtneqn7ItU8LIIdlBbyXl1A8g",
-  authDomain: "careshare-d3c74.firebaseapp.com",
-  projectId: "careshare-d3c74",
-  storageBucket: "careshare-d3c74.appspot.com",
-  messagingSenderId: "339006510175",
-  appId: "1:339006510175:web:a8fad88cd2539cb91bb7ea",
-  measurementId: "G-DXHCXFX7LE",
-};
-let app = firebase.initializeApp(firebaseConfig);
 
 // firebase
 //   .auth()
@@ -53,3 +43,26 @@ let app = firebase.initializeApp(firebaseConfig);
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
 ui.start("#firebaseui-auth-container", uiConfig);
+
+function loginButtonClicked() {
+  let loginSucess = emailLogin(
+    document.getElementById("loginName").value,
+    document.getElementById("loginPassword").value
+  );
+
+  if (loginSucess) window.open(mainPage, "_self");
+}
+
+function emailLogin(email, password) {
+  //firebase.auth().signOut();
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch((error) => {
+      alert("Error, might be wrong password");
+    });
+}
+let u;
+firebase.auth().onAuthStateChanged((user) => {
+  u = user;
+});
