@@ -61,6 +61,10 @@ header {
     margin-bottom: 10px;
   }
 
+  .hidden-div{
+    display: none;
+  }
+
   .search-box form {
     display: flex;
     align-items: center;
@@ -236,6 +240,8 @@ header {
     border: 1px solid gray;
     border-radius: 10px;
     margin-top: 10px;
+    padding-bottom: 1%;
+    padding-left: 1%;
     background-color: rgba(203, 246, 248,0.3);
   }
 
@@ -261,7 +267,71 @@ header {
   #status-img{
     width: 100%;
     height: auto;
+  }
+
+  .status-video{
     margin: 0 auto;
+  }
+
+  .status-image img {
+    max-width: auto;
+  }
+
+  .status-video video{
+    max-height: 50vh;
+  }
+
+  .status-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .status-footer nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-links-st{
+    justify-content: center;
+  }
+
+  .status-footer nav ul li {
+    align-content: center;
+    margin: 0;
+    position: relative;
+  }
+  
+  .status-footer nav ul li a {
+    padding: 0;
+    display: block;
+    text-decoration: none;  
+  }
+  
+  #emotion{
+    padding: 8px;
+  }
+
+  .status-footer nav ul li:hover > .dropdown-menu-st {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .status-footer .dropdown-menu-st {
+    top: -6vh;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    padding: 5px;
+    left: 0;
+    background-color: rgb(72, 72, 214);
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   @media screen and (max-width: 992px) {
