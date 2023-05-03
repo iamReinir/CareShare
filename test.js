@@ -20,7 +20,6 @@ firebase.auth().onAuthStateChanged((user) => {
           db.collection(users).doc(uid).set({
             name: user.displayName,
             email: user.email,
-            isOragnization: false,
           });
         }
       })
