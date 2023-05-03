@@ -1,6 +1,8 @@
 let curUser;
 const users = "users";
 const db = firebase.firestore();
+
+//Update users' info onto Firestore database
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User is signed in
@@ -14,10 +16,11 @@ firebase.auth().onAuthStateChanged((user) => {
         if (doc.exists) {
           console.log("Document data:", doc.data());
         } else {
-          console.log("No such document!");
+          console.log("No such document! Updating...");
           db.collection(users).doc(uid).set({
             name: user.displayName,
             email: user.email,
+            isOragnization: false,
           });
         }
       })

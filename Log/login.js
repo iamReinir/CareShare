@@ -22,23 +22,6 @@ var uiConfig = {
   },
 };
 
-// firebase
-//   .auth()
-//   .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-//   .then(() => {
-//     // Existing and future Auth states are now persisted in the current
-//     // session only. Closing the window would clear any existing state even
-//     // if a user forgets to sign out.
-//     // ...
-//     // New sign-in will be persisted with session persistence.
-//     return firebase.auth().signInWithEmailAndPassword(email, password);
-//   })
-//   .catch((error) => {
-//     // Handle Errors here.
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//   });
-
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
@@ -85,7 +68,42 @@ async function emailLogin(email, password) {
 function loginFailed() {
   alert("Wrong email and/or password!");
 }
-let u;
-firebase.auth().onAuthStateChanged((user) => {
-  u = user;
-});
+
+async function registerButtonClicked() {
+  let name = document.getElementById("registerName").value;
+  let tele = document.getElementById("registerTelephone").value;
+  let email = document.getElementById("registerEmail").value;
+  let password = document.getElementById("registerPassword").value;
+  let rePassword = document.getElementById("registerRepeatPassword").value;
+  if (password.length < 6) {
+    alert("Please use more than 6 characters for password!");
+    return;
+  }
+  if (password != rePassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+  let succeed = await createUser(email, password, name, tele);
+  if (succeed) window.open(mainPage, "_self");
+}
+
+async function createUser(email, password, name, tele) {
+  let res = true;
+  await firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .catch((e) => {
+      alert(e.message);
+      res = false;
+    });
+  let user = firebase.auth().currentUser;
+  await user
+    .updateProfile({
+      displayName: name,
+      phoneNumber: tele,
+    })
+    .catch((e) => {
+      alert(e.message);
+    });
+  return res;
+}
