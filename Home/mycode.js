@@ -8,6 +8,16 @@ function postStatus() {
   let cloneDiv = node.cloneNode(true);
   cloneDiv.classList.remove("fade");
   cloneDiv.children[1].children[0].innerHTML = statusText;
+
+  const input = document.getElementById("image-file");
+  let file = input.files ? input.files[0] : null;
+  const reader = new FileReader();
+  reader.onload = function () {
+    cloneDiv.children[2].children[0].src = reader.result;
+  };
+  if (file) {
+    reader.readAsDataURL(file);
+  }
   cloneDiv.children[0].children[0].src = avatar;
   cloneDiv.children[0].children[1].innerHTML = name;
   document.getElementById("centerD").firstElementChild.after(cloneDiv);
