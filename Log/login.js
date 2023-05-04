@@ -1,4 +1,4 @@
-const mainPage = "../test.html";
+const mainPage = "../index.html";
 var uiConfig = {
   signInSuccessUrl: mainPage,
   signInOptions: [
