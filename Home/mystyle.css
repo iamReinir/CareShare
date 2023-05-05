@@ -235,6 +235,34 @@ header {
     border: 0px;
   }
 
+  label.label input[type="file"] {
+  position: absolute;
+  top: -1000px;
+}
+.label {
+  cursor: pointer;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background: rgb(66, 66, 240);
+  display: inline-block;
+  margin-left: 40%;
+  margin-top: 10px;
+}
+.label:hover {
+  background: #5cbd95;
+}
+.label:active {
+  background: #9fa1a0;
+}
+.label:invalid+span {
+  color: #000000;
+}
+.label:valid+span {
+  color: #ffffff;
+}
+ 
+
   .status-post{
     width: 100%;
     border: 1px solid gray;
@@ -263,7 +291,60 @@ header {
   .status-content{
     margin: 1%;
   }
+  /* comments div*/
+  #comments {
+    display: none;
+  }
+  #comments form {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  #comments label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    margin: 0 auto;
+  }
+  
+  #comments input[type="text"],
+  #comments textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #comments button[type="button"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #comments button[type="button"]:hover {
+    background-color: #3E8E41;
+  }
+  
+  #comment-list li {
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5em;
+  }
 
+
+
+
+
+
+
+
+
+
+  /*end comments div*/
   #status-img{
     width: 100%;
     height: auto;
