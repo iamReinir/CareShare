@@ -46,3 +46,32 @@ window.onload = function(){
         document.querySelectorAll("[id=avatar]").forEach(element=>element.src = avatar);
     }
 }
+
+function addComment() {
+  const commentInput = document.getElementById('comment');
+  const commentList = document.getElementById('comment-list');
+
+  // Lấy giá trị của trường tên và nội dung bình luận
+  const comment = commentInput.value;
+
+  // Tạo một phần tử <li> mới để chứa bình luận
+  const newComment = document.createElement('li');
+
+  // Thêm tên và nội dung bình luận vào phần tử <li> mới
+  newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
+
+  // Thêm phần tử <li> mới vào danh sách bình luận
+  commentList.appendChild(newComment);
+  commentInput.value = '';
+}
+var cmtTimes = false;
+function openComment(){
+  var cmt = document.getElementById("comments")
+  if(cmtTimes == false)
+  { cmt.style.display = "block"; cmtTimes = true}
+  else
+  {
+    cmt.style.display = "none";
+    cmtTimes = false;
+  }
+}
