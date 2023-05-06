@@ -415,6 +415,27 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  .stacking-div{
+    z-index: 1;
+  }
+
+  #pills-news, #pills-sche, #pills-maps{
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+  }
+
+  .form-label{
+    margin-top: 5px;
+  }
+
+  .newEvent{
+    width: 60%;
+    margin: 0 auto;
+  }
+
   @media screen and (max-width: 992px) {
     .search-box, nav{
       display: none;
@@ -436,17 +457,42 @@ header {
     .mobile-res{
       display: block;
     }
+
+    #pills-news, #pills-sche, #pills-maps{
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: 80%;
+      width: 92%;
+    }
   }
  
   @media screen and (max-width: 530px) {
     textarea{
       width: 60%;
     }
+    #pills-news, #pills-sche, #pills-maps{
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: 80%;
+      width: 92%;
+    }
   }
 
   @media screen and (max-width: 400px) {
     textarea{
       width: 50%;
+    }
+    #pills-news, #pills-sche, #pills-maps{
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: 80%;
+      width: 92%;
     }
   }
   
