@@ -1,10 +1,3 @@
-let loged = true;
-let avatar = "Home/image/avatar.png";     // avatar from database
-let name = "Rai";
-
-
-
-
 function postStatus(){
     let statusText = document.getElementById("status-text").value;
     const node = document.getElementById("status-div");
@@ -74,4 +67,88 @@ function openComment(){
     cmt.style.display = "none";
     cmtTimes = false;
   }
+}
+
+function showNews(){
+  document.getElementById("pills-news").classList.toggle("hidden-div");
+  document.getElementById("pills-sche").classList.add("hidden-div");
+  document.getElementById("pills-maps").classList.add("hidden-div");
+  document.getElementById("pills-news").classList.add("stacking-div");
+}
+
+function showSche(){
+  document.getElementById("pills-news").classList.add("hidden-div");
+  document.getElementById("pills-sche").classList.toggle("hidden-div");
+  document.getElementById("pills-maps").classList.add("hidden-div");
+  document.getElementById("pills-sche").classList.add("stacking-div");
+  calendar();
+}
+
+function showMaps(){
+  document.getElementById("pills-news").classList.add("hidden-div");
+  document.getElementById("pills-maps").classList.toggle("hidden-div");
+  document.getElementById("pills-sche").classList.add("hidden-div");
+  document.getElementById("pills-maps").classList.add("stacking-div");
+}
+
+function regNewEvent(){
+  document.getElementById("regNewEvent").classList.remove("hidden-div");
+}
+
+function calendar() {
+		
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,basicWeek,basicDay'
+    },
+    defaultDate: new Date().toISOString().slice(0, 10),
+    navLinks: true, // can click day/week names to navigate views
+    editable: true,
+    eventLimit: true, // allow "more" link when too many events
+    events: [
+      {
+        title: 'Schedule',
+        start: '2023-05-06'
+      },
+      {
+        title: 'Google maps',
+        url: 'https://google.com/',
+        start: '2023-05-06',
+        end: '2023-05-08'
+      }],
+      eventClick: function(event) {
+        if (confirm('Title: ' + event.title + '\nStart Date: ' + event.start.format() + '\nEnd Date: ' + event.end.format() + '\nLocation: ' + event.location + '\nNumber of Register: ' + event.scale + '\nDescription: ' + event.description + '\nUrl: ' + event.url + '\n\n Access Event?')) {
+          window.open(event.url);
+          return false;
+        }else{
+          return false;
+        }
+      }
+  });
+}
+
+function newEvent(){
+  let eventTitle = document.getElementById('eventTitle').value;
+  let eventAdr = document.getElementById('eventAdr').value;
+  let eventStart = document.getElementById('eventStart').value;
+  let eventEnd = document.getElementById('eventEnd').value;
+  let eventScale = document.getElementById('eventScale').value;
+  let eventDescription = document.getElementById('eventDescription').value;
+  let eventUrl  = document.getElementById('eventUrl').value;
+  let newE = {
+    events: [
+      {
+        title: eventTitle,
+        location: eventAdr,
+        start: eventStart,
+        end: eventEnd,
+        scale: eventScale,
+        description: eventDescription,
+        url: eventUrl
+      }
+    ]
+  }
+  $('#calendar').fullCalendar('addEventSource', newE);
 }
